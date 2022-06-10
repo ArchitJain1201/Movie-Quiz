@@ -18,5 +18,5 @@ interface QuizDao {
 
     @Query("SELECT * FROM movielistingentity")
     fun getAll(): List<MovieListingEntity>
-    
+
 }

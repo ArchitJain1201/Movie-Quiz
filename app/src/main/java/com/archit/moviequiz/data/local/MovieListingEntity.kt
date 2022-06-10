@@ -1,6 +1,7 @@
 package com.archit.moviequiz.data.local
 
 import androidx.room.Entity
+import androidx.room.PrimaryKey
 
 @Entity
 data class MovieListingEntity(
@@ -11,5 +12,6 @@ data class MovieListingEntity(
     val option4: String,
     val actor: String,
     val imgUrl: String,
-    val movieBy: String
+    val movieBy: String,
+    @PrimaryKey val id: Int? = null
 )
