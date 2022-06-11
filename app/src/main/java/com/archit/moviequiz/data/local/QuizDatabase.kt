@@ -8,5 +8,5 @@ import androidx.room.RoomDatabase
     version = 1
 )
 abstract class QuizDatabase: RoomDatabase() {
-    abstract val dto: QuizDao
+    abstract val dao: QuizDao
 }

@@ -10,13 +10,13 @@ interface QuizDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertMovieListings(
-        companyListingEntities: List<MovieListingEntity>
+        movieListingEntities: List<MovieListingEntity>
     )
 
     @Query("DELETE FROM movielistingentity")
     suspend fun clearMovieListings()
 
     @Query("SELECT * FROM movielistingentity")
-    fun getAll(): List<MovieListingEntity>
+    fun getAllMovieListing(): List<MovieListingEntity>
 
 }
