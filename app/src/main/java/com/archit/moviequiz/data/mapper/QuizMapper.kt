@@ -13,7 +13,8 @@ fun MovieListingEntity.toMovieListing(): MovieListing {
      option4 = option4,
      actor = actor,
      imgUrl = imgUrl,
-     movieBy = movieBy
+     movieBy = movieBy,
+     answer = answer
  )
 }
 fun MovieListing.toMovieListingEntity(): MovieListingEntity {
@@ -25,7 +26,8 @@ fun MovieListing.toMovieListingEntity(): MovieListingEntity {
         option4 = option4,
         actor = actor,
         imgUrl = imgUrl,
-        movieBy = movieBy
+        movieBy = movieBy,
+        answer = answer
     )
 }
 
@@ -38,6 +40,7 @@ fun MovieInfoDto.toMovieListingEntity(): MovieListingEntity {
         option4 = option4!!,
         actor = actor!!,
         imgUrl = imgUrl!!,
-        movieBy = movieBy!!
+        movieBy = movieBy!!,
+        answer = answer!!
     )
 }

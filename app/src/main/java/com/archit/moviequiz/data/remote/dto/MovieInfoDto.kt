@@ -11,4 +11,5 @@ data class MovieInfoDto(
     @field:Json(name = "actor") val actor: String?,
     @field:Json(name = "img_url") val imgUrl: String?,
     @field:Json(name = "movie_by") val movieBy: String?,
+    @field:Json(name = "answer") val answer: String?
 )

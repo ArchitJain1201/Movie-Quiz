@@ -10,6 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.archit.moviequiz.util.UserManager
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 
@@ -20,10 +21,11 @@ fun QuizPageScreen(
     viewModel: QuizPageViewModel = hiltViewModel(),
 ){
     val state = viewModel.state
+    val question =state.movieList[1]
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.spacedBy(8.dp),
     ){
-        Text(text = )
+//        Text(text = question.name )
     }
 }

@@ -13,5 +13,6 @@ data class MovieListingEntity(
     val actor: String,
     val imgUrl: String,
     val movieBy: String,
+    val answer: String,
     @PrimaryKey val id: Int? = null
 )

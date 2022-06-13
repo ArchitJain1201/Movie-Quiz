@@ -8,5 +8,6 @@ data class MovieListing(
     val option4: String,
     val actor: String,
     val imgUrl: String,
-    val movieBy: String
+    val movieBy: String,
+    val answer: String,
 )

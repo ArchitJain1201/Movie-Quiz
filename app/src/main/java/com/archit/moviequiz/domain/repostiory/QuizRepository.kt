@@ -9,4 +9,5 @@ interface QuizRepository {
     suspend fun getMovieListing(
         fetchFromRemote: Boolean,
     ): Flow<Resource<List<MovieListing>>>
+
 }
