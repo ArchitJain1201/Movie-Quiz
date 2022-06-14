@@ -131,6 +131,9 @@ dependencies {
     //coil
     implementation("io.coil-kt:coil-compose:2.1.0")
 
+    //material icon
+    implementation "androidx.compose.material:material-icons-extended:$compose_version"
+
     //Requestly
     debugImplementation "io.requestly.rqinterceptor:library:1.+"
     releaseImplementation "io.requestly.rqinterceptor:library-no-op:1.+"

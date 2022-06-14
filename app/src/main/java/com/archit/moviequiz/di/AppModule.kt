@@ -1,13 +1,17 @@
 package com.archit.moviequiz.di
 
 import android.app.Application
+import android.content.Context
 import androidx.room.Room
 import com.archit.moviequiz.data.local.QuizDatabase
 import com.archit.moviequiz.data.remote.QuizApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
+import io.requestly.rqinterceptor.api.RQCollector
+import io.requestly.rqinterceptor.api.RQInterceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -21,12 +25,14 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideStockApi(): QuizApi {
+    fun provideStockApi(@ApplicationContext appContext: Context): QuizApi {
+        val collector = RQCollector(context = appContext, sdkKey="OiVlATaJTR8oPPJmhx2e")
+        val rqInterceptor = RQInterceptor.Builder( appContext ).collector(collector).build()
         return Retrofit.Builder()
             .baseUrl(QuizApi.BASE_URL)
             .addConverterFactory(MoshiConverterFactory.create())
             .client(OkHttpClient.Builder()
-                .addInterceptor(HttpLoggingInterceptor().apply { level = HttpLoggingInterceptor.Level.BASIC }).build())
+                .addInterceptor(rqInterceptor).build())
             .build()
             .create()
     }
