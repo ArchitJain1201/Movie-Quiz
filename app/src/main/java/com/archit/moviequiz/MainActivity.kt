@@ -7,8 +7,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.*
 import androidx.compose.ui.Modifier
 import com.archit.moviequiz.ui.theme.MovieQuizTheme
-import com.archit.moviequiz.presentation.NavGraphs
 import com.ramcosta.composedestinations.DestinationsNavHost
+import com.archit.moviequiz.presentation.NavGraphs
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
