@@ -33,22 +33,22 @@ class QuizPageViewModel @Inject constructor(
     //for Score 1. read Score 2. Write score 2a. PreviousScore + penalty
     var score: Int = 0
     var Totalscore: Int = 0
-    private fun observeData(){
-        this.userManager.readFromDataStore.asLiveData().observe(this){
-            Totalscore = it
-        }
-    }
+//    private fun observeData(){
+//        this.userManager.readFromDataStore.asLiveData().observe(this){
+//            Totalscore = it
+//        }
+//    }
     //TODO: LiveData<Int> to Int
-    fun updateScore(option: String){
-        if(score==0){
-            println("no Change")
-        }else{
-            val storedScore: Int = readFromDataStore.value
-            val currentScore = storedScore+penalty+score
-            saveToDataStore(currentScore)
-        }
-
-    }
+//    fun updateScore(option: String){
+//        if(score==0){
+//            println("no Change")
+//        }else{
+//            val storedScore: Int = readFromDataStore.value
+//            val currentScore = storedScore+penalty+score
+//            saveToDataStore(currentScore)
+//        }
+//
+//    }
 
     //QuestionBank 1.FetchData 2.MapData( Includes Numbering )  3.Store the Clicked option
     //TODO: Temparary Paging is done as var should be done through DataStore

@@ -17,10 +17,11 @@ import javax.inject.Singleton
 @Singleton
 class QuizRepositoryImpl @Inject constructor(
     private val api: QuizApi,
-    private val db: QuizDatabase,
+    private val db: QuizDatabase
 ): QuizRepository {
 
     private val dao = db.dao
+
     override suspend fun getMovieListing(
         fetchFromRemote: Boolean,
     ): Flow<Resource<List<MovieListing>>> {
@@ -53,6 +54,7 @@ class QuizRepositoryImpl @Inject constructor(
                 emit(Resource.Error("Couldn't load data"))
                 null
             }
+
             remoteListings?.let { listings ->
                 dao.clearMovieListings()
                 dao.insertMovieListings(
@@ -64,6 +66,7 @@ class QuizRepositoryImpl @Inject constructor(
                 ))
                 emit(Resource.Loading(false))
             }
+
         }
     }
 }

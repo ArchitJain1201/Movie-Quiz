@@ -25,7 +25,7 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideStockApi(@ApplicationContext appContext: Context): QuizApi {
+    fun provideQuizApi(@ApplicationContext appContext: Context): QuizApi {
         val collector = RQCollector(context = appContext, sdkKey="OiVlATaJTR8oPPJmhx2e")
         val rqInterceptor = RQInterceptor.Builder( appContext ).collector(collector).build()
         return Retrofit.Builder()
@@ -39,7 +39,7 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideStockDatabase(app: Application): QuizDatabase {
+    fun provideQuizDatabase(app: Application): QuizDatabase {
         return Room.databaseBuilder(
             app,
             QuizDatabase::class.java,

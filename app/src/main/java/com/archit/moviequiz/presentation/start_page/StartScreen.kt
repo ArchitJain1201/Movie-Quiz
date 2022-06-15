@@ -17,9 +17,7 @@ import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 @Composable
 fun StartScreen(
     navigator: DestinationsNavigator,
-    viewModel: StartPageViewModel = hiltViewModel(),
 ) {
-    val state = viewModel.state
     Column() {
         TopAppBar() {
             Text(
