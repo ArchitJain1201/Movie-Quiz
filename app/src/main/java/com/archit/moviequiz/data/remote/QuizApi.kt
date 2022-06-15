@@ -8,6 +8,6 @@ interface QuizApi {
     suspend fun getMovieInfo(): List<MovieInfoDto>
 
     companion object{
-        const val BASE_URL ="12.0.0.1:500"
+        const val BASE_URL ="http://127.0.0.1:5000"
     }
 }

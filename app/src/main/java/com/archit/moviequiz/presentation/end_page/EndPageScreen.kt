@@ -8,6 +8,8 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import com.archit.moviequiz.presentation.destinations.QuizPageScreenDestination
+import com.archit.moviequiz.presentation.destinations.StartScreenDestination
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 
@@ -19,7 +21,7 @@ fun EndPageScreen(
     //TODO: Fetch Data from Preference Data
     Column(modifier = Modifier.fillMaxSize()) {
         Text(text = "Total Score: --/30")
-        Button(onClick = { /*TODO*/ }, colors = ButtonDefaults.textButtonColors(backgroundColor = Color.Blue)) {
+        Button(onClick = { navigator.navigate(StartScreenDestination())}, colors = ButtonDefaults.textButtonColors(backgroundColor = Color.Blue)) {
             Text(text = "Move to Home Screen")
         }
     }

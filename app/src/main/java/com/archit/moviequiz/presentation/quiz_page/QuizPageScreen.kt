@@ -12,6 +12,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.archit.moviequiz.presentation.destinations.EndPageScreenDestination
+import com.archit.moviequiz.presentation.destinations.QuizPageScreenDestination
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 
@@ -48,11 +50,13 @@ fun QuizPageScreen(
     ExpandableCard(title = "Music By" , description = question.movieBy)
     ExpandableCard(title = "Image" , description = question.imgUrl)
     Button(onClick = { /*TODO*/ }, colors = ButtonDefaults.textButtonColors(backgroundColor = Color.Blue)) {
+        //TODO: Add logic
         if(true) {
             Text(text = "Next")
-        }else {
+        }else if(false) {
             Text(text = "Finish")
         }
+        navigator.navigate(EndPageScreenDestination())
     }
 }
 
