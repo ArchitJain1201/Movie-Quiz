@@ -21,7 +21,6 @@ class QuizRepositoryImpl @Inject constructor(
 ): QuizRepository {
 
     private val dao = db.dao
-
     override suspend fun getMovieListing(
         fetchFromRemote: Boolean,
     ): Flow<Resource<List<MovieListing>>> {
@@ -41,8 +40,7 @@ class QuizRepositoryImpl @Inject constructor(
                 return@flow
             }
             val remoteListings = try {
-                val response = api.getMovieInfo()
-                print(response)
+                api.getMovieInfo()
                 // if a API call is made it tell the compiler to parse it to a usable form
                 //The Problem here is that the response that we are receiving
                 // from the server we have to make it into a list
@@ -55,7 +53,17 @@ class QuizRepositoryImpl @Inject constructor(
                 emit(Resource.Error("Couldn't load data"))
                 null
             }
-
+            remoteListings?.let { listings ->
+                dao.clearMovieListings()
+                dao.insertMovieListings(
+                    listings.map { it.toMovieListingEntity() }
+                )
+                // here the data is cached
+                emit(Resource.Success(
+                    data = dao.getAllMovieListing().map { it.toMovieListing() }
+                ))
+                emit(Resource.Loading(false))
+            }
         }
     }
 }

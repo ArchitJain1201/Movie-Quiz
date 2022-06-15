@@ -38,6 +38,7 @@ class QuizPageViewModel @Inject constructor(
             Totalscore = it
         }
     }
+    //TODO: LiveData<Int> to Int
     fun updateScore(option: String){
         if(score==0){
             println("no Change")
@@ -51,6 +52,7 @@ class QuizPageViewModel @Inject constructor(
 
     //QuestionBank 1.FetchData 2.MapData( Includes Numbering )  3.Store the Clicked option
     //TODO: Temparary Paging is done as var should be done through DataStore
+    //TODO: Have to Give option of Referesh
     var page: Int = -1
     var option: String = ""
     private fun getMovieListing(fetchFromRemote: Boolean = false) {
